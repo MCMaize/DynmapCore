@@ -811,10 +811,12 @@ public abstract class DynmapWorld {
     }
     public static String normalizeWorldName(String n) {
          /* remove funny characters */
-        if(n !=null) 
+        /*  Changed from:  return (n != null)?n.replace('/', '-'):null; */
+        if (n != null) {
             n.replace("/", "-");
             n.replace("..", "-");
             return n;
+        }
         else
          return null;
     }
