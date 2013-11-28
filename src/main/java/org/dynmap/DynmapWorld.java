@@ -810,7 +810,13 @@ public abstract class DynmapWorld {
         this.title = title;
     }
     public static String normalizeWorldName(String n) {
-        return (n != null)?n.replace('/', '-'):null;
+         /* remove funny characters */
+        if(n !=null) 
+            n.replace("/", "-");
+            n.replace("..", "-");
+            return n;
+        else
+         return null;
     }
     public String getRawName() {
         return raw_wname;
